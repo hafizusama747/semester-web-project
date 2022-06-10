@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('./partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+        <h1>Shopping Cart</h1>
+        <% cart.forEach(function(product) { %>
+          <div class="content">
+            <div class="card">
+              <img src="/uploads/images/<%=product.img%>" alt="Avatar" style="width:100%">
+              <div class="container1">
+                <h1 ><%= product.name%></h1>
+                <p class="card-text"><%= product.desc%></p>
+                <b>Product Price: <%= product.price%></b>
+              </div>
+
+              <div class="actions">
+                <a id="deletebtn" href="/products/cart/remove/<%= product._id%>", class="btn btn-danger"><b>Remove From Cart</b></a>  
+              </div>
+                                  
+            </div>
+           
+          </div>          
+        <% }); %>
+
+        <div class="total">
+            <b>Total price: <%= total%></b>
+        </div>
+  </div>
+</main>
+
+<footer>
+  <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+</html>

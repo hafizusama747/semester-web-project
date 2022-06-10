@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+      <div class="row">
+          <div class="col-sm-4"><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Products</h1></div>
+          <div class="col-sm-8"><a href="/products/add", class="btn btn-success float-right">Add a New Product</a></div>          
+      </div>
+      <% if (products.length>0) { %>
+        <% products.forEach(function(product) { %>
+          <div class="content">
+            <div class="card">
+              <img src="/uploads/images/<%=product.img%>" alt="Avatar" style="width:100%">
+              <div class="container1">
+                <h1 ><%= product.name%></h1>
+                <p class="title"><%= product.desc%></p>
+                <h5>Product Price: <%= product.price%></h5>
+              </div>
+              <div class="actions">
+                <a id="deletebtn" href="/products/delete/<%= product._id%>", class="btn btn-danger"><b>Delete</b></a>               
+                <a id="deletebtn" href="/products/edit/<%= product._id%>", class="btn btn-warning"><b>Edit</b></a>  
+                <a id="deletebtn" href="/products/cart/<%= product._id%>", class="btn btn-info"><b>Add to Cart</b></a>  
+              </div>                                  
+            </div>           
+          </div>          
+        <% }); %>            
+      <%} else { %>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Product Found...</p>
+      <% } %>          
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

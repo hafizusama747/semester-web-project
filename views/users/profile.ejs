@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <% if (user) { %>
+        <div class="carduser">
+          <img src="/uploads/images/<%=user.img%>" alt="John" >
+          <h1><%= user.name%></h1>
+          <p class="title"><%= user.type%></p>
+          <a  href="http://localhost:3000/profile/settings"><p><button >Settings</button></p></a>
+          
+        </div>              
+      <%} else { %>
+        <h1>Not Logged in...</h1>
+      <% } %>   
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
